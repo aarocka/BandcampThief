@@ -35,7 +35,7 @@ exports.query = function(req, res){
 		        console.log(thejson);
 		        console.log();
 
-		        if (response.content.data == 'undefined') {
+		        if (thejson.band_id == '3385865266') {
 		        	console.log('users url is an artist page');
 		        }else{
 		        	console.log('users url was an album page. redirect to where ever.');
