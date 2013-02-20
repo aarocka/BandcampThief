@@ -6,6 +6,7 @@
 var express = require('express')
   , routes = require('./routes')
   , search = require('./routes/user')
+  , album = requrie('./routes/albumpage')
   , http = require('http')
   , path = require('path');
 
@@ -29,8 +30,8 @@ app.configure('development', function(){
 });
 
 app.get('/', routes.index);
-app.get('/query', routes.query);
-app.get('/album', )
+app.get('/query', search.query);
+app.get('/album', album.albumpage);
 
 
 http.createServer(app).listen(app.get('port'), function(){
