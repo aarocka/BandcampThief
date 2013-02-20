@@ -36,9 +36,12 @@ exports.query = function(req, res){
 		        console.log();
 		        
 		        if (thejson.album_id == undefined) {
-		        	console.log('Artist Page, show disco');
+		        	console.log('Artist Page, fetching disco');
+
 		        }else{
 		        	console.log('Album. show track list');
+
+
 		        }
 
 		      	res.render('search-results', { 
