@@ -20,17 +20,19 @@ exports.query = function(req, res){
 			request('http://api.bandcamp.com/api/url/1/info?key=vatnajokull&url=' + userquery, function (error, response, body) {
 				if (!error && response.statusCode == 200) {
 			  		console.log('Success!');
-			  		var urlInfo = body;
-			  		console.log(urlInfo);
-			  		console.log(urlInfo.album_id);
+			  		var urlInfoString = body;
+			  		console.log(urlInfoString);
+			  		//urlInfo is string. converting to json
+			  		var urlInfoJSON = JSON.parse(urlInfoString);
+			  		console.log(urlInfoJSON.album_id);
 
 
-			        if (urlInfo.album_id == undefined) {
+			        if (urlInfoJSON.album_id == undefined) {
 			        	console.log('Artist Page, fetching disco');
 			        	console.log(urlInfo.album_id);
 			        }else{
 			        	console.log('Album. show track list');
-			        	res.redirect('/album/' + urlInfo.album_id);
+			        	res.redirect('/album/' + urlInfoJSON.album_id);
 			        }
 
 			      	res.render('search-results', { 
