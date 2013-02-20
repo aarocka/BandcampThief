@@ -6,7 +6,7 @@
 var express = require('express')
   , routes = require('./routes')
   , search = require('./routes/user')
-  , album = requrire('./routes/albumpage')
+  , album = require('./routes/albumpage')
   , http = require('http')
   , path = require('path');
 
