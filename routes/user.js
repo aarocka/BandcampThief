@@ -16,8 +16,9 @@ exports.query = function(req, res){
 
 
 	if (thequery.indexOf("bandcamp.com") !== -1){
-		console.log("url was searched");
+		console.log("a url was searched");
 		//find info on the url
+		console.log();
 
 		var thedata = shred.get({
 		  url: "http://api.bandcamp.com/api/url/1/info?key=vatnajokull&url=" + thequery,
@@ -27,16 +28,24 @@ exports.query = function(req, res){
 		  on: {
 		    // You can use response codes as events
 		    200: function(response) {
-		      // Shred will automatically JSON-decode response bodies that have a
-		      // JSON Content-Type
-		      //response.content.data
-		      var thejson = response.content.body;
+		    	// Shred will automatically JSON-decode response bodies that have a
+		        // JSON Content-Type
+		        //response.content.data
+		        var thejson = response.content.data;
+		        console.log('The raw json' + thejson);
+		        console.log();
+
+		        if (thejson.album_id == 'undefined') {
+		        	console.log('users url is an artist page');
+		        }else{
+		        	console.log('users url was an album page. redirect to where ever.');
+		        }
 
 		      	res.render('search-results', { 
-					result: thejson,
-					title: 'you gave me a url' 
-				});
-		     
+					title: 'you gave me a url',
+					result: thejson 
+				});	
+
 		    },
 		    
 		    // Any other response means something's wrong
@@ -45,14 +54,13 @@ exports.query = function(req, res){
 		    }
 		  }
 		});
-		console.log(thedata.thejson);
 
-		//if artist page, return discography
-
-		//if album redirect to download album page
+		
 
 	}else{
 		console.log("an artist was searched");
+
+
 	}
 
 
