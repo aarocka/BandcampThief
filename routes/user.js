@@ -10,19 +10,29 @@ exports.query = function(req, res){
 
 	if (userquery.indexOf("bandcamp.com") !== -1){
 		console.log("The users search was a url. Parsing the URL.")
-		//Send the url to bandcamps api to dig some stuff up on the url
-		//using request
-		var urlInfo; //information returned by the bandcamp url search
-		var request = require('request');
+			//Send the url to bandcamps api to dig some stuff up on the url
+			//using request
+			var urlInfo; //information returned by the bandcamp url search
+			var request = require('request');
 
-		request('http://api.bandcamp.com/api/url/1/info?key=vatnajokull&url=' + userquery, function (error, response, body) {
-		  if (!error && response.statusCode == 200) {
-		  	console.log('success!');
+			request('http://api.bandcamp.com/api/url/1/info?key=vatnajokull&url=' + userquery, function (error, response, body) {
+				if (!error && response.statusCode == 200) {
+			  	console.log('Success!');			        
+			        if (body.album_id == undefined) {
+			        	console.log('Artist Page, fetching disco');
+			        }else{
+			        	console.log('Album. show track list');
 
-		  }
-		});
+			        }
 
-		console.log(request.body);
+			      	res.render('search-results', { 
+						title: 'you gave me a url',
+						result: 'somthin' 
+					});	
+
+
+			  	}
+			});
 
 
 
