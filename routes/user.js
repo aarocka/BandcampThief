@@ -32,7 +32,7 @@ exports.query = function(req, res){
 		        // JSON Content-Type
 		        //response.content.data
 		        var thejson = response.content.data;
-		        console.log('The raw json' + response.content.data);
+		        console.log(thejson);
 		        console.log();
 
 		        if (response.content.data == 'undefined') {
