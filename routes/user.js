@@ -32,15 +32,14 @@ exports.query = function(req, res){
 		        // JSON Content-Type
 		        //response.content.data
 		        var thejson = response.content.data;
-		        console.log(thejson.album_id);
+		        console.log(thejson);
 		        console.log();
-		        /*
-		        if (thejson.band_id == '3385865266') {
-		        	console.log('users url is an artist page');
+		        
+		        if (thejson.album_id == 'undefined') {
+		        	console.log('Artist Page, show disco');
 		        }else{
-		        	console.log('users url was an album page. redirect to where ever.');
+		        	console.log('Album. show track list');
 		        }
-		        */
 
 		      	res.render('search-results', { 
 					title: 'you gave me a url',
