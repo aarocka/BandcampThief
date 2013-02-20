@@ -22,8 +22,11 @@ exports.query = function(req, res){
 			  		console.log('Success!');
 			  		var urlInfo = body;
 			  		console.log(urlInfo);
+
+
 			        if (urlInfo.album_id == undefined) {
-			        	console.log('Artist Page, fetching disco');	
+			        	console.log('Artist Page, fetching disco');
+			        	console.log(urlInfo.album_id);
 			        }else{
 			        	console.log('Album. show track list');
 			        	res.redirect('/album/' + urlInfo.album_id);
