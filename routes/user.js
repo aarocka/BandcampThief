@@ -17,11 +17,12 @@ exports.query = function(req, res){
 
 		request('http://api.bandcamp.com/api/url/1/info?key=vatnajokull&url=' + userquery, function (error, response, body) {
 		  if (!error && response.statusCode == 200) {
-		  	urlInfo=body;
+		  	console.log('success!');
+
 		  }
 		});
 
-		console.log(urlInfo);
+		console.log(request.body);
 
 
 
