@@ -14,14 +14,17 @@ exports.query = function(req, res){
 		console.log("The users search was a url. Parsing the URL.")
 			//Send the url to bandcamps api to dig some stuff up on the url
 			//using request
-			var urlInfo; //information returned by the bandcamp url search
+		    //information returned by the bandcamp url search
 			var request = require('request');
 
 			request('http://api.bandcamp.com/api/url/1/info?key=vatnajokull&url=' + userquery, function (error, response, body) {
 				if (!error && response.statusCode == 200) {
 			  		console.log('Success!');
+			  		var urlInfo = body;
+			  		console.log(urlInfo);
 
-			        if (body.album_id == undefined) {
+
+			        if (urlInfo.album_id == undefined) {
 			        	console.log('Artist Page, fetching disco');
 			        	
 			        }else{
