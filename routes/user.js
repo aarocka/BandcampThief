@@ -22,6 +22,7 @@ exports.query = function(req, res){
 			  		console.log('Success!');
 			  		var urlInfo = body;
 			  		console.log(urlInfo);
+			  		console.log(urlInfo.album_id);
 
 
 			        if (urlInfo.album_id == undefined) {
