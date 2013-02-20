@@ -41,7 +41,7 @@ exports.query = function(req, res){
 		    }
 		  }
 		});
-		console.log(thejson);
+		console.log(thedata.thejson);
 
 		//if artist page, return discography
 
