@@ -31,7 +31,11 @@ exports.query = function(req, res){
 		      // JSON Content-Type
 		      //response.content.data
 		      var thejson = response.content.body;
-		      res.send(thejson);
+
+		      	res.render('search-results', { 
+					result: thejson,
+					title: 'you gave me a url' 
+				});
 		     
 		    },
 		    
@@ -52,8 +56,5 @@ exports.query = function(req, res){
 	}
 
 
-	res.render('search-results', { 
-		result: 'you gave me a url',
-		title: 'you gave me a url' 
-	});
+
 };
