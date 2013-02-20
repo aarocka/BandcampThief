@@ -32,10 +32,10 @@ exports.query = function(req, res){
 		        // JSON Content-Type
 		        //response.content.data
 		        var thejson = response.content.data;
-		        console.log('The raw json' + thejson);
+		        console.log('The raw json' + response.content.data);
 		        console.log();
 
-		        if (thejson.album_id == 'undefined') {
+		        if (response.content.data == 'undefined') {
 		        	console.log('users url is an artist page');
 		        }else{
 		        	console.log('users url was an album page. redirect to where ever.');
