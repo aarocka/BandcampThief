@@ -35,7 +35,7 @@ exports.query = function(req, res){
 		        console.log(thejson);
 		        console.log();
 		        
-		        if (thejson.album_id == 'undefined') {
+		        if (thejson.album_id == undefined) {
 		        	console.log('Artist Page, show disco');
 		        }else{
 		        	console.log('Album. show track list');
