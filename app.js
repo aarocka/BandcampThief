@@ -29,7 +29,8 @@ app.configure('development', function(){
 });
 
 app.get('/', routes.index);
-app.get('/query', search.query);
+app.get('/query', routes.query);
+app.get('/album', )
 
 
 http.createServer(app).listen(app.get('port'), function(){
