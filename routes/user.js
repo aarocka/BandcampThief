@@ -37,7 +37,7 @@ exports.query = function(req, res){
 
 			        }else{
 			        	console.log('Album. show track list');
-			        	res.redirect('/album/' + urlInfoJSON.album_id);
+			        	res.redirect('/album/?album=' + urlInfoJSON.album_id);
 			        }
 
 			      	res.render('search-results', { 
