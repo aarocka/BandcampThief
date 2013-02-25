@@ -34,7 +34,7 @@ exports.query = function(req, res){
 								var disco = JSON.parse(urlInfoString);
 								console.log(disco);
 								for (var i = 0; i < disco['discography'].length ; i++) {
-									var newRow = disco.[discography].[i];
+									
 									res.send(disco.[discography].[i].title);
 
 
