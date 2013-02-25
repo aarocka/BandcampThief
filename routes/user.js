@@ -33,9 +33,11 @@ exports.query = function(req, res){
 							if (!error && response.statusCode == 200) {
 								var disco = JSON.parse(urlInfoString);
 								console.log(disco);
-								for (var i = 0; i < disco['discography'].length; i++) {
+
+								for (var i = 0; i < disco.discography.length; i++) {
 									
 									res.send(disco['discography'][i]['title']);
+
 
 
 									/*res.render('search-results', { 
