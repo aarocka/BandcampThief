@@ -31,7 +31,7 @@ exports.query = function(req, res){
 			        	console.log('Artist Page, fetching disco');
 						request('http://api.bandcamp.com/api/band/3/discography?key=vatnajokull&band_id=' + urlInfoJSON.band_id, function (error, response, body) {
 							if (!error && response.statusCode == 200) {
-								var disco = JSON.parse(urlInfoString);
+								var disco = JSON.parse(body);
 								console.log(disco);
 
 								for (var i = 0; i < disco.discography.length; i++) {
