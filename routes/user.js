@@ -35,7 +35,7 @@ exports.query = function(req, res){
 								console.log(disco);
 
 								for (var i = 0; i < disco.discography.length; i++) {
-									
+									console.log(disco['discography'][i]['title']);
 									res.send(disco['discography'][i]['title']);
 
 
