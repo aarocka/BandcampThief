@@ -31,7 +31,19 @@ exports.query = function(req, res){
 			        	console.log('Artist Page, fetching disco');
 						request('http://api.bandcamp.com/api/band/3/discography?key=vatnajokull&band_id=' + urlInfoJSON.band_id, function (error, response, body) {
 							if (!error && response.statusCode == 200) {
-								console.log(body);
+								var disco = JSON.parse(urlInfoString);
+								console.log(disco);
+								for (var i = 0; i < disco['discography'].length ; i++) {
+									var newRow = disco.[discography].[i];
+									res.send(disco.[discography].[i].title);
+
+
+									/*res.render('search-results', { 
+										title: 'you gave me a url',
+										result: 'somthinSomthin' 
+									});*/
+
+								};
 							}
 						});
 
@@ -40,10 +52,7 @@ exports.query = function(req, res){
 			        	res.redirect('/album/?album=' + urlInfoJSON.album_id);
 			        }
 
-			      	res.render('search-results', { 
-						title: 'you gave me a url',
-						result: 'somthin' 
-					});	
+			      	
 			  	};
 			});
 
