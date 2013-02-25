@@ -29,7 +29,7 @@ exports.query = function(req, res){
 
 			        if (urlInfoJSON.album_id == undefined) {
 			        	console.log('Artist Page, fetching disco');
-						request('http://api.bandcamp.com/api/band/3/discography?key=vatnajokull&band_id=' urlInfoJSON.band_id, function (error, response, body) {
+						request('http://api.bandcamp.com/api/band/3/discography?key=vatnajokull&band_id=' + urlInfoJSON.band_id, function (error, response, body) {
 							if (!error && response.statusCode == 200) {
 								console.log(body);
 							}
