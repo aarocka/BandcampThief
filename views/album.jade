@@ -4,8 +4,6 @@ block content
   table(class='table')
     thead
       tr
-      ul
-      each track in tracks
-        li
-          a(href=track.streaming_url)= track.title
+      th #{tracks}
+      th
       th
