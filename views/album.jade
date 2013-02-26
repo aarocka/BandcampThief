@@ -7,5 +7,5 @@ block content
       ul
       each track in tracks
         li
-          a(href='/track/?track='+track.track_id)= track.title
+          a(href=track.streaming_url)= track.title
       th
