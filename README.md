@@ -10,9 +10,9 @@ Totaly messed up the repo fixed now
 - [ ] show discography when users gives an artist url
 - [ ] create discography helper function
 - [ ] improve album downloading with zip files and id3v2 tagging
-- [ ] add id3v2 tagger build script
+- [x] add id3v2 tagger build script
 - [ ] plan the progress bar things possibly using mongodb or redis. I would prefer mongodb.
-- [ ] create build script
+- [x] create build script
 - [ ] make site look badass
 
 # How this thing is supposed to work
