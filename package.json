@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "preinstall": "buildid3.sh",
     "start": "node app"
   },
   "dependencies": {
@@ -11,5 +12,10 @@
     "less-middleware": "*",
     "shred": "0.8.8",
     "request": "2.14.0"
-  }
+  },
+  "repository" :
+  { "type" : "git"
+  , "url" : "https://github.com/rainbowdash/BandcampThief.git"
+  },
+  "private": true
 }
