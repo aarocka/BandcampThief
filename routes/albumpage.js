@@ -5,7 +5,7 @@ var util = require('util')
 exports.albumpage = function(req, res) {
 	helper.getAlbumInfo(req.query.album, function(albumInfo, error) {
 		if (error) {
-			res.end('There was an error: ' + albumInfo.error_message);
+			res.end('There was an error: ' + error);
 			return;
 		}
 		console.log(albumInfo);
@@ -21,30 +21,29 @@ exports.trackdownload = function(req, res) {
 	helper.getSongInfo(req.query.track, function(trackInfo, error) {
 		if (error) {
 			res.end('There was an error: ' + trackInfo.error_message);
-			return;
 		}
 
 		helper.getAlbumInfo(trackInfo.album_id, function(albumInfo, error) {
 			if (error) {
 				res.end('There was an error: ' + albumInfo.error_message);
-				return;
 			}
 
-			helper.getBandInfo(trackInfo.band_id, function(bandInfo, error) {
-				if (error) {
-					res.end('There was an error: ' + bandInfo.error_message);
-					return;
+			for (var i = 0, l = albumInfo.tracks.length; i < l; i++) {
+				var temp = albumInfo.tracks[i];
+				if (temp.track_id == trackInfo.track_id) {
+					trackInfo = temp;
+					break;
 				}
+			}
 
-				res.header('Content-Type', 'application/octet-stream');
-				request.get(trackInfo.streaming_url).on('response', function(response) {
-					console.log(trackInfo);
-					res.header('Content-Length', response.headers['content-length']);
-					res.header('Last-Modified', response.headers['last-modified']);
-					res.header('Date', response.headers['date']);
-					res.header('Content-Disposition', 'attachment; filename=' + util.format("%s - %s - %s.mp3", (trackInfo.artist ? trackInfo.artist : bandInfo.name), albumInfo.title, trackInfo.title));
-					response.pipe(res);
-				});
+			res.header('Content-Type', 'application/octet-stream');
+			request.get(trackInfo.streaming_url).on('response', function(response) {
+				console.log(trackInfo);
+				res.header('Content-Length', response.headers['content-length']);
+				res.header('Last-Modified', response.headers['last-modified']);
+				res.header('Date', response.headers['date']);
+				res.header('Content-Disposition', 'attachment; filename=' + util.format("%s - %s - %s.mp3", trackInfo.artist, albumInfo.title, trackInfo.title));
+				response.pipe(res);
 			});
 		});
 	});

@@ -1,17 +1,9 @@
 module.exports = {
-	getBandInfo: getBandInfo,
 	getAlbumInfo: getAlbumInfo,
 	getSongInfo: getSongInfo
 }
 
 var request = require('request');
-
-function getBandInfo(bandId, callback) {
-	request('http://api.bandcamp.com/api/band/3/info?key=vatnajokull&band_id=' + bandId, function(error, response, body) {
-		var bandInfo = JSON.parse(body);
-		callback.call(this, bandInfo, bandInfo.error);
-	});
-}
 
 function getAlbumInfo(albumId, callback) {
 	request('http://api.bandcamp.com/api/album/2/info?key=vatnajokull&album_id=' + albumId, function(error, response, body) {
