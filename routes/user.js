@@ -53,11 +53,12 @@ exports.query = function(req, res){
 			       	console.log('Album. show track list');
 			       	//res.redirect('/album/?album=' + urlInfoJSON.album_id);
 			       	request('http://api.bandcamp.com/api/album/2/info?key=vatnajokull&album_id=' + urlInfoJSON.album_id, function(error, response, body) {
-			       		albumInfo = JSON.parse(body);
+			       		var albumInfo = JSON.parse(body);
+			       		console.log(util.inspect(albumInfo));
 			       		
 			       		res.render('album', {
 			       			title: 'album',
-			       			tracks: albumInfo
+			       			tracks: albumInfo.tracks
 			       		});
 			       	});
 				}
