@@ -13,9 +13,5 @@
     "shred": "0.8.8",
     "request": "2.14.0"
   },
-  "repository" :
-  { "type" : "git"
-  , "url" : "https://github.com/rainbowdash/BandcampThief.git"
-  },
   "private": true
 }
