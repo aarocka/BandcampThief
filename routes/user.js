@@ -29,7 +29,7 @@ exports.query = function(req, res){
 				} else{
 					res.render('search-results', {
 						title: 'Discography',
-						discography: discoInfo.discography
+						disco: discoInfo.discography
 					});
 
 				}
