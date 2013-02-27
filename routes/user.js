@@ -21,12 +21,22 @@ exports.query = function(req, res){
 		console.log(bandcampURLinfo.json);
 
 		if (bandcampURLinfo.urlType == 'artist') {
+			
+			helper.getDiscoInfo(bandcampURLinfo.json.band_id, function(discoInfo, error){
+				if (error) {
+					res.end('There was an error: ' + bandcampURLinfo.error_message);
+					return;
+				} else{
+					res.render('search-results', {
+						title: 'Discography',
+						albums: discoInfo.discography
+					});
+
+				}
+			})
+
 
 			
-			/*res.render('search-results', {
-				title: 'Disco',
-
-			})*/
 
 		} else if (bandcampURLinfo.urlType == 'album') {
 			console.log('show track list');

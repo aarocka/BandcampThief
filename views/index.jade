@@ -2,7 +2,6 @@ extends layout
 
 block content
 	h1= title
-	p Welcome to #{title}
-	p Give me a url or artist name
+	p Give me an artist or album url.
 	form(action='/query/', method='get')
 		input(type='text', name='query')

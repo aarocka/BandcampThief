@@ -2,11 +2,13 @@ module.exports = {
 	getBandInfo: getBandInfo,
 	getAlbumInfo: getAlbumInfo,
 	getSongInfo: getSongInfo,
-	getURLInfo: getURLInfo
-	
+	getURLInfo: getURLInfo,
+	getDiscoInfo: getDiscoInfo
 }
 
 var request = require('request');
+
+
 
 function getURLInfo(bandcampURL, callback) {
 	request('http://api.bandcamp.com/api/url/1/info?key=vatnajokull&url=' + bandcampURL, function(error, response, body){
@@ -24,6 +26,13 @@ function getURLInfo(bandcampURL, callback) {
 			bandcampURLinfo.urlType = "album";
 		}
 		callback.call(this, bandcampURLinfo, bandcampURLinfo.error);
+	});
+}
+
+function getDiscoInfo (bandId, callback) {
+	request('http://api.bandcamp.com/api/band/3/discography?key=vatnajokull&band_id=' + bandId, function (error, response, body) {
+		var	discoInfo = JSON.parse(body);
+		callback.call(this, discoInfo, discoInfo.error);
 	});
 }
 
