@@ -1,6 +1,6 @@
 var util = require('util')
   , request = require('request')
-  , helper = require('./helper');
+  , helper = require('../lib/helper');
 
 exports.albumpage = function(req, res) {
 	helper.getAlbumInfo(req.query.album, function(albumInfo, error) {
