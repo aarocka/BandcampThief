@@ -1,5 +1,6 @@
 #!/bin/bash
 cd id3
+tar zxf *.tar.gz
 cd id3lib
 sudo ./configure
 sudo make
