@@ -1,11 +1,14 @@
 extends layout
 
 block content
-  table(class='table')
-    thead
-      tr
-      ul
-      each album in disco
-        li
-          a(href='/album/?album='+album.album_id)= album.title
-      th
+  h1= title
+  ul.media-list
+    each album in disco
+      li.media
+        a.pull-left(href='/album/?album='+album.album_id)
+          img.media-object(src=album.small_art_url)
+        .media-body
+          a(href='/album/?album='+album.album_id)
+            h4.media-heading= album.title
+          p= album.description
+

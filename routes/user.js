@@ -28,7 +28,7 @@ exports.query = function(req, res){
 					return;
 				} else{
 					res.render('search-results', {
-						title: 'Discography',
+						title: discoInfo['discography'][1]['artist'] + " 's discography",
 						disco: discoInfo.discography
 					});
 
