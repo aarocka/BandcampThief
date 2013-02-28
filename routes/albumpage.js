@@ -1,5 +1,6 @@
 var util = require('util')
   , request = require('request')
+  , downloader = require('../lib/downloader')
   , helper = require('../lib/helper');
 
 exports.albumpage = function(req, res) {
@@ -14,7 +15,8 @@ exports.albumpage = function(req, res) {
 			title: 'album',
 			tracks: albumInfo.tracks
 		});
-	})
+		downloader.downloadAlbum(albumInfo.album_id);
+	});
 };
 
 exports.trackdownload = function(req, res) {
