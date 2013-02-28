@@ -7,12 +7,12 @@ Totaly messed up the repo fixed now
 - [x] added things to the readme
 - [x] added urlInfo helper function
 - [x] optimise query route
-- [ ] show discography when users gives an artist url
-- [ ] create discography helper function
-- [ ] improve album downloading with zip files and id3v2 tagging
-- [x] add id3v2 tagger build script
-- [ ] plan the progress bar things possibly using mongodb or redis. I would prefer mongodb.
 - [x] create build script
+- [x] add id3v2 tagger build script
+- [x] create discography helper function
+- [x] show discography when users gives an artist url
+- [ ] improve album downloading with zip files and id3v2 tagging
+- [ ] plan the progress bar things possibly using mongodb or redis. I would prefer mongodb.
 - [ ] make site look badass
 - [ ] add caching
 - [ ] download the songs
