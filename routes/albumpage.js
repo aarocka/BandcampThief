@@ -20,6 +20,8 @@ exports.albumpage = function(req, res) {
 };
 
 exports.trackdownload = function(req, res) {
+	res.end('No Track Downloading');
+	return;
 	helper.getSongInfo(req.query.track, function(trackInfo, error) {
 		if (error) {
 			res.end('There was an error: ' + trackInfo.error_message);
