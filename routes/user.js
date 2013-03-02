@@ -1,11 +1,19 @@
-// uses the new rest api system
-// This page parses the query, then either shows the discgraphy
-// or redirects to the albumpage
-var request = require('request');
-var util = require('util');
-var helper = require('../lib/helper');
+module.exports = function init(lio) {
+	io = lio;
+	return eexports;
+}
 
-exports.query = function(req, res){
+eexports = {
+	query: query
+}
+
+var request = require('request')
+  , util = require('util')
+  , helper = require('../lib/helper');
+
+var io;
+
+function query(req, res){
 	// gets the user search field
 	// lets start parsing
 	var userquery = req.query.query;
@@ -16,32 +24,24 @@ exports.query = function(req, res){
 		if (error) {
 			res.end('There was an error: ' + bandcampURLinfo.error_message);
 			return;
-		} else{
+		}
 		console.log('That url was an ' + bandcampURLinfo.urlType);
 		console.log(bandcampURLinfo.json);
 
 		if (bandcampURLinfo.urlType == 'artist') {
-			
 			helper.getDiscoInfo(bandcampURLinfo.json.band_id, function(discoInfo, error){
 				if (error) {
 					res.end('There was an error: ' + bandcampURLinfo.error_message);
 					return;
-				} else{
-					res.render('search-results', {
-						title: discoInfo['discography'][1]['artist'] + " 's discography",
-						disco: discoInfo.discography
-					});
-
 				}
-			})
-
-
-			
-
+				res.render('search-results', {
+					title: discoInfo['discography'][1]['artist'] + " 's discography",
+					disco: discoInfo.discography
+				});
+			});
 		} else if (bandcampURLinfo.urlType == 'album') {
 			console.log('show track list');
 			res.redirect('/album/?album=' + bandcampURLinfo.json.album_id);
 		}
-	}
-	})
+	});
 };

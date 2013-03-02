@@ -1,9 +1,17 @@
+var io;
 
-/*
- * GET home page.
- */
+module.exports = function init(lio) {
+	io = lio;
+	return eexports;
+}
 
-exports.index = function(req, res){
-  res.render('index', { title: 'Bandcamp Thief' });
-};
+eexports = {
+	index: index,
+	albumpage: require('./albumpage')(io),
+	search: require('./user')(io)
+}
+
+function index(req, res){
+	res.render('index', { title: 'Bandcamp Thief' });
+}
 

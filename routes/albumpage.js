@@ -1,9 +1,21 @@
+module.exports = function init(lio) {
+	io = lio;
+	return eexports;
+}
+
+eexports = {
+	albumpage: albumpage,
+	trackdownload: trackdownload
+}
+
 var util = require('util')
   , request = require('request')
   , downloader = require('../lib/downloader')
   , helper = require('../lib/helper');
 
-exports.albumpage = function(req, res) {
+var io;
+
+function albumpage(req, res) {
 	helper.getAlbumInfo(req.query.album, function(albumInfo, error) {
 		if (error) {
 			res.end('There was an error: ' + albumInfo.error_message);
@@ -17,9 +29,9 @@ exports.albumpage = function(req, res) {
 		});
 		downloader.downloadAlbum(albumInfo.album_id);
 	});
-};
+}
 
-exports.trackdownload = function(req, res) {
+function trackdownload(req, res) {
 	res.end('No Track Downloading');
 	return;
 	helper.getSongInfo(req.query.track, function(trackInfo, error) {
