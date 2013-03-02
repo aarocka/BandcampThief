@@ -1,7 +1,7 @@
 node_modules
 
-id3/id3lib
-id3/id3v2
+id3/tmp
+id3/bin
 
 .DS_Store
 .AppleDouble
