@@ -10,7 +10,7 @@ var express = require('express')
 var port = process.env.PORT || 3000;
 
 server.listen(port, function() {
-  console.log("Express server listening on port " + app.get('port'));
+  console.log("Express server listening on port " + port);
 });
 
 app.configure(function(){
@@ -30,6 +30,6 @@ app.configure('development', function(){
 });
 
 app.get('/', routes.index);
-app.get('/query', routes.search.query);
-app.get('/album', routes.albumpage.albumpage);
-app.get('/track', routes.albumpage.trackdownload);
+app.get('/query', routes.query);
+app.get('/album', routes.albumpage);
+app.get('/track', routes.trackdownload);
