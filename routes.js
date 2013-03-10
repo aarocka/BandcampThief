@@ -12,7 +12,7 @@ var eexports = {
 
 var util = require('util')
   , request = require('request')
-  , downloader = require('./lib/downloader')
+  , downloader = require('./lib/downloader')(io)
   , helper = require('./lib/helper');
 
 var io;
