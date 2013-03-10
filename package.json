@@ -11,7 +11,8 @@
     "jade": "*",
     "less-middleware": "*",
     "request": "2.14.0",
-    "socket.io": "0.9.13"
+    "socket.io": "0.9.13",
+    "filesize": "1.8.0"
   },
   "private": true
 }

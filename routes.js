@@ -37,7 +37,7 @@ function albumpage(req, res) {
 	});
 };
 
-exports.trackdownload = function(req, res) {
+function trackdownload(req, res) {
 	res.end('No Track Downloading');
 	return;
 	helper.getSongInfo(req.query.track, function(trackInfo, error) {
