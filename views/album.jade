@@ -6,6 +6,7 @@ block content
       tr
       ul
       each track in tracks
-        li
-          a(href='/track/?track='+track.track_id)= track.title
+        li= track.title
+      tr
+      p Downloading album...
       th
