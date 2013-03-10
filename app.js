@@ -1,19 +1,27 @@
-#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
 
 var express = require('express')
-  , app = express()
-  , server = require('http').createServer(app)
-  , io = require('socket.io').listen(server)
-  , routes = require('./routes')(io)
+  , routes = require('./routes')
+  , search = require('./routes/user')
+  , album = require('./routes/albumpage')
+  , http = require('http')
   , path = require('path');
 
+<<<<<<< HEAD:app
 var port = process.env.PORT || 3000;
 
 server.listen(port, function() {
   console.log("Express server listening on port " + port);
 });
+=======
+var app = express();
+>>>>>>> ecd6f344137ec12cc2a1302fa327930bcdda2fff:app.js
 
 app.configure(function(){
+  app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
   app.use(express.favicon());
@@ -30,6 +38,16 @@ app.configure('development', function(){
 });
 
 app.get('/', routes.index);
+<<<<<<< HEAD:app
 app.get('/query', routes.query);
 app.get('/album', routes.albumpage);
 app.get('/track', routes.trackdownload);
+=======
+app.get('/query', search.query);
+app.get('/album', album.albumpage);
+app.get('/track', album.trackdownload);
+
+app.listen(app.get('port'), function() {
+  console.log("Express server listening on port " + app.get('port'));
+});
+>>>>>>> ecd6f344137ec12cc2a1302fa327930bcdda2fff:app.js

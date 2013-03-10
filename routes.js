@@ -35,9 +35,9 @@ function albumpage(req, res) {
 		});
 		downloader.downloadAlbum(albumInfo.album_id);
 	});
-}
+};
 
-function trackdownload(req, res) {
+exports.trackdownload = function(req, res) {
 	res.end('No Track Downloading');
 	return;
 	helper.getSongInfo(req.query.track, function(trackInfo, error) {
