@@ -13,7 +13,11 @@ server.listen(port, function() {
   console.log("Express server listening on port " + port);
 });
 
-app.configure(function(){
+io.configure(function() {
+  io.set('log level', 2);
+});
+
+app.configure(function() {
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
   app.use(express.favicon());

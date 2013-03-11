@@ -1,5 +1,6 @@
 module.exports = function init(lio) {
 	io = lio;
+	downloader = require('./lib/downloader')(io);
 	return eexports;
 }
 
@@ -12,10 +13,9 @@ var eexports = {
 
 var util = require('util')
   , request = require('request')
-  , downloader = require('./lib/downloader')(io)
   , helper = require('./lib/helper');
 
-var io;
+var io, downloader;
 
 function index(req, res){
 	res.render('index', { title: 'Bandcamp Thief' });
@@ -94,8 +94,9 @@ function query(req, res){
 					return;
 				}
 				res.render('search-results', {
-					title: discoInfo['discography'][1]['artist'] + " 's discography",
-					disco: discoInfo.discography
+					title: discoInfo.discography[1].artist + " 's discography",
+					disco: discoInfo.discography,
+					util: require('util')
 				});
 			});
 		} else if (bandcampURLinfo.urlType == 'album') {
