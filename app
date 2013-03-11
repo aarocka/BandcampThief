@@ -37,3 +37,10 @@ app.get('/', routes.index);
 app.get('/query', routes.query);
 app.get('/album', routes.albumpage);
 app.get('/track', routes.trackdownload);
+
+io.sockets.on('connection', function(socket) {
+  socket.on('begin', function(album) {
+    if (!album.id) return;
+    routes.downloadAlbum(album.id);
+  });
+});

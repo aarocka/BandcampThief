@@ -1,6 +1,7 @@
 module.exports = function init(lio) {
 	io = lio;
 	downloader = require('./lib/downloader')(io);
+	eexports.downloadAlbum = downloader.downloadAlbum;
 	return eexports;
 }
 
@@ -8,7 +9,9 @@ var eexports = {
 	index: index,
 	query: query,
 	albumpage: albumpage,
-	trackdownload: trackdownload
+	trackdownload: trackdownload,
+
+	dowwnloadAlbum: null // Set during init
 }
 
 var util = require('util')
@@ -93,8 +96,9 @@ function query(req, res){
 					res.end('There was an error: ' + bandcampURLinfo.error_message);
 					return;
 				}
+				console.log(discoInfo.discography);
 				res.render('search-results', {
-					title: discoInfo.discography[1].artist + " 's discography",
+					title: discoInfo.discography[1].artist + "'s discography",
 					disco: discoInfo.discography,
 					util: require('util')
 				});
