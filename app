@@ -4,10 +4,12 @@ var express = require('express')
   , app = express()
   , server = require('http').createServer(app)
   , io = require('socket.io').listen(server)
-  , routes = require('./routes')(io)
+  , routes = require('./routes')
   , path = require('path');
 
 var port = process.env.PORT || 8003;
+
+global.io = io;
 
 server.listen(port, function() {
   console.log("Express server listening on port " + port);
@@ -41,6 +43,6 @@ app.get('/track', routes.trackdownload);
 io.sockets.on('connection', function(socket) {
   socket.on('begin', function(album) {
     if (!album.id) return;
-    routes.downloadAlbum(album.id);
+    routes.downloader.downloadAlbum(album.id);
   });
 });

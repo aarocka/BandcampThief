@@ -1,24 +1,17 @@
-module.exports = function init(lio) {
-	io = lio;
-	downloader = require('./lib/downloader')(io);
-	eexports.downloadAlbum = downloader.downloadAlbum;
-	return eexports;
-}
+var util = require('util')
+  , request = require('request')
+  , helper = require('./lib/helper')
+  , downloader = require('./lib/downloader');
 
-var eexports = {
+module.exports = {
 	index: index,
 	query: query,
 	albumpage: albumpage,
 	trackdownload: trackdownload,
-
-	dowwnloadAlbum: null // Set during init
+	downloader: downloader
 }
 
-var util = require('util')
-  , request = require('request')
-  , helper = require('./lib/helper');
-
-var io, downloader;
+var io = global.io;
 
 function index(req, res){
 	res.render('index', { title: 'Bandcamp Thief' });
