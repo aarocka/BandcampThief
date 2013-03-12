@@ -41,8 +41,37 @@ app.get('/album', routes.albumpage);
 app.get('/track', routes.trackdownload);
 
 io.sockets.on('connection', function(socket) {
-  socket.on('begin', function(album) {
+  socket.on('download-album', function(album) {
     if (!album.id) return;
     routes.downloader.downloadAlbum(album.id);
   });
+  socket.on('catchup', function(args) {
+    if (!args.album_id) return;
+    routes.downloader.queue.emit('catchup', args.album_id);
+  });
 });
+
+evalR = function evalR(cmd, context, filename, callback) {
+  var err, result;
+  try {
+    result = eval(cmd);
+  } catch(e) {
+    err = e;
+  }
+  callback(err, result);
+}
+
+require('net').createServer(function(socket) {
+  var r = require('repl').start({
+    prompt: 'Bandcamp> ',
+    input: socket,
+    output: socket,
+    terminal: true,
+    eval: evalR,
+    useGlobal: true
+  });
+  r.on('exit', function() {
+    socket.end();
+  });
+  //r.context.socket = socket;
+}).listen(8003);
