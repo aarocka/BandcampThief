@@ -11,8 +11,6 @@ module.exports = {
 	downloader: downloader
 }
 
-var io = global.io;
-
 function index(req, res){
 	res.render('index', { title: 'Bandcamp Thief' });
 }
