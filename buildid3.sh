@@ -24,13 +24,13 @@ cd tmp
 for i in $CWD/src/*.tar.gz; do tar zxf $i; done
 
 cd id3lib*
-for i in $CWD/patch/id3lib/*.patch; do patch -p1 < $i; done
-sudo ./configure --prefix=$CWD/bin
-sudo make
-sudo make install
+#for i in $CWD/patch/id3lib/*.patch; do patch -p1 < $i; done
+./configure --prefix=$CWD/bin
+make
+make install
 
 cd ..
 cd id3v2*
-sudo make PREFIX=$CWD/bin
+make PREFIX=$CWD/bin
 mkdir -p $CWD/bin/man/man1
-sudo make install PREFIX=$CWD/bin
+make install PREFIX=$CWD/bin

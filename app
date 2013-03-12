@@ -7,7 +7,7 @@ var express = require('express')
   , routes = require('./routes')(io)
   , path = require('path');
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 8003;
 
 server.listen(port, function() {
   console.log("Express server listening on port " + port);
