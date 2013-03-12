@@ -27,6 +27,7 @@ function albumpage(req, res) {
 
 		res.render('album', {
 			title: 'album',
+			id: albumInfo.album_id,
 			tracks: albumInfo.tracks
 		});
 		downloader.downloadAlbum(albumInfo.album_id);
