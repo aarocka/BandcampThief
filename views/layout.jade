@@ -3,10 +3,10 @@ html
   head
     title= title
     link(rel='stylesheet', href='/css/bootstrap.css')
-    script(src='/js/jquery.js')
-    script(src='/js/bootstrap.js')
-    script(src='/socket.io/socket.io.js')
-    script(src='/js/thief.js')
+    block scripts
+      script(src='/js/jquery.js')
+      script(src='/js/bootstrap.js')
+      script(src='/socket.io/socket.io.js')
 
   body
     div(class='container-fluid')

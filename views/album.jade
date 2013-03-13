@@ -1,5 +1,9 @@
 extends layout
 
+append scripts
+  script(src='/socket.io/socket.io.js')
+  script(src='/js/thief.js')
+
 block content
   script
     var ID = #{id}
