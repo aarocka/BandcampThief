@@ -4,8 +4,8 @@ $(document).ready(function() {
   socket = io.connect();
   done = "<i class='icon-ok'></i>  ";
 
-  socket.emit('catchup', { album_id: ID }, function(details) {
-    for (var i = 0, l = details.finished.length; i < l; i++) {
+  socket.emit('catchup', { album_id: ID }, function(finished) {
+    for (var i = 0, l = finished.length; i < l; i++) {
       track = details.finished[i];
       var li = $('li')[track.track.number - 1];
       li.innerHTML = done + li.innerHTML;
