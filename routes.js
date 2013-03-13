@@ -1,14 +1,12 @@
 var util = require('util')
   , request = require('request')
-  , helper = require('./lib/helper')
-  , downloader = require('./lib/downloader');
+  , helper = require('./lib/helper');
 
 module.exports = {
 	index: index,
 	query: query,
 	albumpage: albumpage,
-	trackdownload: trackdownload,
-	downloader: downloader
+	trackdownload: trackdownload
 }
 
 function index(req, res){
@@ -21,7 +19,6 @@ function albumpage(req, res) {
 			res.end('There was an error: ' + albumInfo.error_message);
 			return;
 		}
-		console.log(albumInfo);
 
 		res.render('album', {
 			title: 'album',

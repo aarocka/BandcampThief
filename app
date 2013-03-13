@@ -4,6 +4,7 @@ var express = require('express')
   , app = express()
   , server = require('http').createServer(app)
   , io = require('socket.io').listen(server)
+  , downloader = require('./lib/downloader')
   , routes = require('./routes')
   , path = require('path');
 
@@ -43,15 +44,15 @@ app.get('/track', routes.trackdownload);
 io.sockets.on('connection', function(socket) {
   socket.on('download-album', function(album) {
     if (!album.id) return;
-    routes.downloader.downloadAlbum(album.id);
+    downloader.downloadAlbum(album.id);
   });
-  socket.on('catchup', function(args) {
+  socket.on('catchup', function(args, fn) {
     if (!args.album_id) return;
-    routes.downloader.queue.emit('catchup', args.album_id);
+    downloader.queue.emit('catchup', args.album_id, fn);
   });
 });
 
-evalR = function evalR(cmd, context, filename, callback) {
+var evalR = function evalR(cmd, context, filename, callback) {
   var err, result;
   try {
     result = eval(cmd);
