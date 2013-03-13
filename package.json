@@ -8,11 +8,11 @@
   },
   "dependencies": {
     "express": "3.1.0",
-    "jade": "*",
-    "less-middleware": "*",
+    "jade": "0.28.1",
+    "less-middleware": "0.1.9",
     "request": "2.14.0",
     "socket.io": "0.9.13",
-    "filesize": "1.8.0"
-  },
-  "private": true
+    "filesize": "1.8.0",
+    "mongoose": "3.5.8"
+  }
 }
