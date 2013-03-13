@@ -24,7 +24,7 @@ cd tmp
 for i in $CWD/src/*.tar.gz; do tar zxf $i; done
 
 cd id3lib*
-#for i in $CWD/patch/id3lib/*.patch; do patch -p1 < $i; done
+for i in $CWD/patch/id3lib/*.patch; do patch -p1 < $i; done
 ./configure --prefix=$CWD/bin
 make
 make install
