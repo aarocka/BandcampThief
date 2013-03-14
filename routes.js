@@ -25,7 +25,7 @@ function albumpage(req, res) {
 			id: albumInfo.album_id,
 			tracks: albumInfo.tracks
 		});
-		downloader.downloadAlbum(albumInfo.album_id);
+		//downloader.downloadAlbum(albumInfo.album_id);
 	});
 };
 

@@ -4,7 +4,23 @@ $(document).ready(function() {
   socket = io.connect();
   done = "<i class='icon-ok'></i>  ";
 
+  $('#download').click(function(e) {
+    if ($(this).hasClass('disabled'))
+      return false;
+
+    socket.emit('download-album', { id: ID });
+    $(this).addClass('disabled');
+
+    e.preventDefault();
+    return false;
+  });
+
   socket.emit('catchup', { album_id: ID }, function(finished) {
+    if (finished.length == 0) {
+      return;
+    } else {
+      $('#download').addClass('disabled');
+    }
     for (var i = 0, l = finished.length; i < l; i++) {
       track = details.finished[i];
       var li = $('li')[track.track.number - 1];
