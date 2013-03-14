@@ -1,0 +1,12 @@
+--- id3v2.cpp.orig	2013-03-13 20:39:10.000000000 -0400
++++ id3v2.cpp	2013-03-13 20:39:53.000000000 -0400
+@@ -423,7 +423,8 @@
+         {
+           // check if there is a total track number and if we only have 
+           // the track number for this file.  In this case combine them.
+-          char *currentTrackNum, *newTrackNum;
++          char *currentTrackNum = NULL;
++          char *newTrackNum = NULL;
+ 
+           if (pFrame != NULL) 
+           {
