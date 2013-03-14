@@ -22,8 +22,8 @@ $(document).ready(function() {
       $('#download').addClass('disabled');
     }
     for (var i = 0, l = finished.length; i < l; i++) {
-      track = details.finished[i];
-      var li = $('li')[track.track.number - 1];
+      var track = finished[i];
+      var li = $('li')[track.number - 1];
       li.innerHTML = done + li.innerHTML;
     }
   });
