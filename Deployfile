@@ -3,9 +3,8 @@
   "name": "bandcamp",
   "subdomain": "bandcamp",
   "repository": {
-    "type": "tar",
-    "url": "http://mbilker.us/bandcamp.tgz",
-    "protocol": "http"
+    "type": "git",
+    "url": "/git/bandcampthief.git"
   },
   "scripts": {
     "start": "bin/app"
