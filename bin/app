@@ -4,8 +4,8 @@ var express = require('express')
   , app = express()
   , server = require('http').createServer(app)
   , io = require('socket.io').listen(server)
-  , downloader = require('./lib/downloader')
-  , routes = require('./routes')
+  , downloader = require('../lib/downloader')
+  , routes = require('../lib/routes')
   , path = require('path');
 
 var port = process.env.PORT || 3000;

@@ -1,0 +1,13 @@
+{
+  "user": "mbilker",
+  "name": "bandcamp",
+  "subdomain": "bandcamp",
+  "repository": {
+    "type": "tar",
+    "url": "http://mbilker.us/bandcamp.tgz",
+    "protocol": "http"
+  },
+  "scripts": {
+    "start": "bin/app"
+  }
+}

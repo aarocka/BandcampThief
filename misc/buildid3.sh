@@ -4,7 +4,7 @@
 set -e
 
 cd id3
-CWD=$(pwd)
+CWD=$(pwd)/..
 
 if [ -d $CWD/tmp ]; then
   rm -rf tmp
@@ -43,4 +43,6 @@ make PREFIX=$CWD/bin
 mkdir -p $CWD/bin/man/man1
 make install PREFIX=$CWD/bin
 echo "Finished Compiling"
+
+rm -rf $CWD/tmp
 echo "Finished"
