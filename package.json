@@ -7,7 +7,7 @@
     "directory": "git+ssh://git@github.com:rainbowdash/BandcampThief.git"
   },
   "scripts": {
-    "preinstall": "misc/buildid3.sh",
+    "install": "misc/buildid3.sh",
     "start": "bin/app"
   },
   "dependencies": {

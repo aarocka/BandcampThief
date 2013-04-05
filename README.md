@@ -15,7 +15,7 @@ Totaly messed up the repo fixed now
 - [ ] plan the progress bar things possibly using mongodb or redis. I would prefer mongodb.
 - [ ] make site look badass
 - [ ] add caching
-- [ ] download the songs
+- [x] download the songs
 - [ ] add socket.io for progress bar
 
 # How this thing is supposed to work
