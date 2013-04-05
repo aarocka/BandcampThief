@@ -2,6 +2,10 @@
   "name": "BandcampThief",
   "version": "0.0.1",
   "private": true,
+  "repository": {
+    "type": "git",
+    "directory": "git+ssh://git@github.com:rainbowdash/BandcampThief.git"
+  },
   "scripts": {
     "preinstall": "misc/buildid3.sh",
     "start": "bin/app"

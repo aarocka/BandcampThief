@@ -1,10 +1,10 @@
-
 #!/bin/bash
 
 set -e
 
 cd id3
-CWD=$(pwd)/..
+CWD=$(pwd)
+MAKEARGS="-j2"
 
 if [ -d $CWD/tmp ]; then
   rm -rf tmp
@@ -30,8 +30,8 @@ for i in $CWD/patch/id3lib/*.patch; do patch -p1 < $i >/dev/null 2>&1; done
 echo "Configuring id3lib"
 ./configure --prefix=$CWD/bin >/dev/null 2>&1
 echo "Compiling id3lib"
-make
-make install
+make $MAKEARGS
+make $MAKEARGS install
 echo "Finished Compiling"
 
 cd ..
@@ -39,9 +39,9 @@ cd id3v2*
 echo "Patching id3v2"
 for i in $CWD/patch/id3v2/*.patch; do patch -p1 < $i; done
 echo "Compiling id3v2"
-make PREFIX=$CWD/bin
+make $MAKEARGS PREFIX=$CWD/bin
 mkdir -p $CWD/bin/man/man1
-make install PREFIX=$CWD/bin
+make $MAKEARGS install PREFIX=$CWD/bin
 echo "Finished Compiling"
 
 rm -rf $CWD/tmp
