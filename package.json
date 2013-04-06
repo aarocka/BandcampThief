@@ -7,10 +7,10 @@
     "directory": "git+ssh://git@github.com:rainbowdash/BandcampThief.git"
   },
   "scripts": {
-    "install": "(cd libs/node-taglib; npm install --production) || (exit 0)",
     "start": "bin/app"
   },
   "dependencies": {
+    "taglib": "git://github.com/mbilker/node-taglib.git",
     "express": "3.1.0",
     "jade": "0.28.1",
     "less-middleware": "0.1.9",
