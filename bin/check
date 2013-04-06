@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+
+var spawn = require('child_process').spawn;
+
+var orig = process.cwd();
+process.chdir(__dirname + '/../libs/node-taglib');
+
+spawn('npm', ['install', '--production']).on('exit', function(status) {
+  if (status) console.log('Non normal status');
+  process.chdir(orig);
+  require('./app');
+});
