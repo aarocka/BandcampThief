@@ -17,7 +17,7 @@ server.listen(port, function() {
 });
 
 io.configure(function() {
-  //io.set('log level', 2);
+  io.set('log level', 2);
   io.set('transports', ['websocket']);
 });
 
