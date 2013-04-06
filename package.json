@@ -7,7 +7,7 @@
     "directory": "git+ssh://git@github.com:rainbowdash/BandcampThief.git"
   },
   "scripts": {
-    "install": "(cd libs/node-taglib; node-gyp clean configure build 2>../gyp.log) || (exit 0)",
+    "install": "(cd libs/node-taglib; npm install --production) || (exit 0)",
     "start": "bin/app"
   },
   "dependencies": {
