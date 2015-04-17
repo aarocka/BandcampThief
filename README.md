@@ -1,6 +1,6 @@
 BandcampThief
 =============
-Totaly messed up the repo fixed now
+Bandcamp revoked api keys so this app basically does nothing.
 
 # Todo list of things todo
 - [x] added basic album handeling and downloading
