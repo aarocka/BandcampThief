@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/rainbowdash/BandcampThief/badges/gpa.svg)](https://codeclimate.com/github/rainbowdash/BandcampThief)
+
 BandcampThief
 =============
 Bandcamp revoked api keys so this app basically does nothing.
